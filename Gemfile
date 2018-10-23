@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "flog"
+gem "pg"
 gem "pry"
 gem "sinatra"
 
