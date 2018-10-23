@@ -9,9 +9,14 @@ class DailyDiary < Sinatra::Base
   end
 
   post '/' do
+    redirect '/invalid_entry' if params[:title].empty? || params[:body].empty?
     Diary.create(params[:title], params[:body])
     session[:title] = params[:title]
     redirect '/submit'
+  end
+
+  get '/invalid_entry' do
+    erb :invalid_entry
   end
 
   get '/submit' do

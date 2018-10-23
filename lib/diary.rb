@@ -16,7 +16,7 @@ class Diary
   private
 
   def self.choose_database
-    if ENV['ENVIRONMENT'] = 'test'
+    if ENV['ENVIRONMENT'] == 'test'
       @database = PG.connect(dbname: 'daily_diary_test')
     else
       @database = PG.connect(dbname: 'daily_diary')
