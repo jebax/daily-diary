@@ -1,6 +1,7 @@
 feature 'listing diary entries' do
   before do
-    fill_in_and_submit_two_entries
+    fill_table_with_two_entries
+    visit '/'
     click_button 'View all entries'
   end
 

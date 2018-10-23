@@ -19,3 +19,7 @@ end
 def empty_table
   database.exec('TRUNCATE TABLE diary')
 end
+
+def fill_table_with_two_entries
+  database.exec("INSERT INTO diary(title,body) VALUES('My first entry','Lorem ipsum'), ('My second entry','Lorem ipsum')")
+end
