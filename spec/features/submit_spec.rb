@@ -1,9 +1,6 @@
 feature "submitting entries" do
   before do
-    visit '/'
-    fill_in :title, with: "First entry"
-    fill_in :body, with: "Lorem ipsum"
-    click_button "Submit"
+    fill_in_and_submit_entry
   end
 
   scenario "submitting an entry shows a confirmation on screen" do
