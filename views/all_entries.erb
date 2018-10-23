@@ -1,3 +1,4 @@
 <%= erb :header %>
-My first entry
-My second entry
+<% @list.each do |entry| %>
+  <li><%= entry %></li><br>
+<% end %>

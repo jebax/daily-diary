@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/diary'
 
 class DailyDiary < Sinatra::Base
   enable :sessions
@@ -18,6 +19,7 @@ class DailyDiary < Sinatra::Base
   end
 
   get '/all_entries' do
+    @list = Diary.all_entries
     erb :all_entries
   end
 
