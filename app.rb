@@ -9,6 +9,7 @@ class DailyDiary < Sinatra::Base
   end
 
   post '/' do
+    Diary.create(params[:title], params[:body])
     session[:title] = params[:title]
     redirect '/submit'
   end
