@@ -1,63 +1,70 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/Joel/Makers/week4/daily-diary/spec/diary_spec.rb": [
+        1,
+        null,
+        0,
+        null,
+        null
+      ],
       "/Users/Joel/Makers/week4/daily-diary/spec/features/home_spec.rb": [
         1,
         1,
-        4,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null
       ],
       "/Users/Joel/Makers/week4/daily-diary/spec/features/list_entries_spec.rb": [
         1,
         1,
-        2,
-        2,
+        0,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null
       ],
       "/Users/Joel/Makers/week4/daily-diary/spec/features/submit_spec.rb": [
         1,
         1,
-        2,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null
       ]
     },
-    "timestamp": 1540295131
+    "timestamp": 1540323425
   }
 }
