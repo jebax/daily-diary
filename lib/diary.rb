@@ -1,12 +1,16 @@
 require 'pg'
 
 class Diary
-
   @database = nil
 
   def self.all_entries
     choose_database
     select_all.map { |entry| entry['title'] }
+  end
+
+  def self.create(title, body)
+    choose_database
+    database.exec("INSERT INTO diary(title,body) VALUES('#{title}','#{body}')")
   end
 
   private
@@ -22,6 +26,6 @@ class Diary
   end
 
   def self.select_all
-    database.exec('select * from diary')
+    database.exec('SELECT * FROM diary')
   end
 end
