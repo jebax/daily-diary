@@ -22,6 +22,14 @@
         null,
         null
       ],
+      "/Users/Joel/Makers/week4/daily-diary/spec/features/list_entries_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/Joel/Makers/week4/daily-diary/spec/features/submit_spec.rb": [
         1,
         1,
@@ -38,6 +46,6 @@
         null
       ]
     },
-    "timestamp": 1540294334
+    "timestamp": 1540294588
   }
 }

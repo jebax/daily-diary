@@ -1,2 +1,7 @@
 <h1>My Diary</h1>
 <%= erb :entry_form %>
+<div>
+  <form action='/list_entries' method='get'>
+    <input type='submit' value='View all entries'>
+  </form>
+</div>
