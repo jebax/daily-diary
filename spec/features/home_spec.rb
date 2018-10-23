@@ -7,8 +7,13 @@ feature "home page" do
     expect(page).to have_content "My Diary"
   end
 
-  scenario "user can fill in a title's entry" do
+  scenario "user can fill in an entry's title and body" do
     expect(page).to have_content "Your entry title:"
+    expect(page).to have_content "Your entry body:"
     expect(page).to have_css("input[type='text']")
+  end
+
+  scenario "user can submit an entry" do
+    expect(page).to have_selector("input[type='submit'][value='Submit']")
   end
 end
