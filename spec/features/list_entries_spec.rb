@@ -1,6 +1,14 @@
 feature "listing diary entries" do
-  scenario "home page should have a button to view entries" do
-    visit '/'
-    expect(page).to have_selector("input[type='submit'][value='View all entries']")
+  before do
+    fill_in_and_submit_two_entries
+    click_button "View all entries"
+  end
+
+  scenario "button should go to a new page" do
+    expect(page).to have_current_path "/all_entries"
+  end
+
+  scenario "should list multiple entries" do
+    expect(page).to have_content "My first entry My second entry"
   end
 end

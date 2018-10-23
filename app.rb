@@ -17,5 +17,9 @@ class DailyDiary < Sinatra::Base
     erb :submit
   end
 
+  get '/all_entries' do
+    erb :all_entries
+  end
+
   run! if app_file == $0
 end

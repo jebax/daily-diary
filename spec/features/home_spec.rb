@@ -16,4 +16,8 @@ feature "home page" do
   scenario "user can submit an entry" do
     expect(page).to have_selector("input[type='submit'][value='Submit']")
   end
+
+  scenario "home page should have a button to view entries" do
+    expect(page).to have_selector("input[type='submit'][value='View all entries']")
+  end
 end

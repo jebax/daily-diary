@@ -4,7 +4,7 @@ feature "submitting entries" do
   end
 
   scenario "submitting an entry shows a confirmation on screen" do
-    expect(page).to have_content "First entry entered into your diary."
+    expect(page).to have_content "My first entry entered into your diary."
   end
 
   scenario "submitting an entry takes the user to a different page" do
