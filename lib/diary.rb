@@ -10,22 +10,20 @@ class Diary
 
   def self.create(title, body)
     choose_database
-    database.exec("INSERT INTO diary(title,body) VALUES('#{title}','#{body}')")
+    @database.exec("INSERT INTO diary(title,body) VALUES('#{title}','#{body}')")
   end
 
   private
 
-  attr_reader :database
-
   def self.choose_database
     if ENV['ENVIRONMENT'] = 'test'
-      database = PG.connect(dbname: 'daily_diary_test')
+      @database = PG.connect(dbname: 'daily_diary_test')
     else
-      database = PG.connect(dbname: 'daily_diary')
+      @database = PG.connect(dbname: 'daily_diary')
     end
   end
 
   def self.select_all
-    database.exec('SELECT * FROM diary')
+    @database.exec('SELECT * FROM diary')
   end
 end

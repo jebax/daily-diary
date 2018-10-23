@@ -12,4 +12,9 @@ feature 'listing diary entries' do
   scenario 'should list multiple entries' do
     expect(page).to have_content 'My first entry My second entry'
   end
+
+  scenario 'should be able to return home by clicking on the home button' do
+    click_button 'Home'
+    expect(page).to have_current_path('/')
+  end
 end
