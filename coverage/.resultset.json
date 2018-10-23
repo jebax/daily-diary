@@ -1,7 +1,15 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/Joel/Makers/week4/daily-diary/spec/features/index_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ]
     },
-    "timestamp": 1540284158
+    "timestamp": 1540284624
   }
 }

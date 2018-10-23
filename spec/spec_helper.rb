@@ -7,6 +7,8 @@ require 'pry'
 require 'simplecov'
 require 'simplecov-console'
 
+Capybara.app = DailyDiary
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console
 ])
