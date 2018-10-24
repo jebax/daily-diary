@@ -1,4 +1,7 @@
 <%= erb :header %>
 <h3><%= @entry.title %></h3>
 <p><%= @entry.body %></p>
+<form action='/entry' method='post'>
+  <button type='submit' name='id' value='<%= @entry.id %>'>Edit</button>
+</form>
 <%= erb :home_button %>

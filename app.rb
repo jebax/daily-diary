@@ -40,5 +40,28 @@ class DailyDiary < Sinatra::Base
     erb :entry
   end
 
+  post '/entry' do
+    session[:id] = params[:id]
+    redirect '/entry/edit'
+  end
+
+  get '/entry/edit' do
+    list = Diary.all_entries
+    @entry = list.select { |entry| entry.id == session[:id] }.first
+    erb :edit
+  end
+
+  post '/entry/edit' do
+    Diary.update(params[:id], params[:body])
+    session[:id] = params[:id]
+    redirect '/entry/edit/complete'
+  end
+
+  get '/entry/edit/complete' do
+    list = Diary.all_entries
+    @entry = list.select { |entry| entry.id == session[:id] }.first
+    erb :edit_complete
+  end
+
   run! if app_file == $PROGRAM_NAME
 end

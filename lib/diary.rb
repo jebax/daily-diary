@@ -18,6 +18,12 @@ class Diary
     "VALUES('#{title}','#{body}') RETURNING id, title, body")
   end
 
+  def self.update(id, body)
+    choose_database
+    @database.exec("UPDATE diary SET body='#{body}' WHERE id='#{id}'" \
+    "RETURNING id, title, body")
+  end
+
   def initialize(id, title, body)
     @id = id
     @title = title

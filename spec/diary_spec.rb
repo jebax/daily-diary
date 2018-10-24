@@ -1,6 +1,8 @@
 require 'diary'
 
 describe Diary do
+  let(:entry_1) { Diary.new('1', 'My first entry', 'Lorem ipsum') }
+
   describe "::all_entries" do
     it 'should be able to list bookmarks' do
       fill_table_with_two_entries
@@ -18,6 +20,16 @@ describe Diary do
       expect(results['id']).to eq '1'
       expect(results['title']).to eq title
       expect(results['body']).to eq body
+    end
+  end
+
+  describe "::update" do
+    it "should be able to update an entry's body" do
+      fill_table_with_two_entries
+      results = described_class.update(entry_1.id, entry_1.body).first
+      expect(results['id']).to eq entry_1.id
+      expect(results['title']).to eq entry_1.title
+      expect(results['body']).to eq entry_1.body
     end
   end
 end

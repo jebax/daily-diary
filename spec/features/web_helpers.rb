@@ -23,6 +23,6 @@ def empty_table
 end
 
 def fill_table_with_two_entries
-  database.exec("INSERT INTO diary(title,body) " \
-    "VALUES('My first entry','Lorem ipsum'), ('My second entry','Lorem ipsum')")
+  Diary.create('My first entry', 'Lorem ipsum')
+  Diary.create('My second entry', 'Lorem ipsum')
 end
