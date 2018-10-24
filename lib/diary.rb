@@ -3,20 +3,23 @@ require 'pg'
 class Diary
   @database = nil
 
-  attr_reader :title, :body
+  attr_reader :id, :title, :body
 
   def self.all_entries
     choose_database
-    select_all.map { |entry| Diary.new(entry['title'], entry['body']) }
+    select_all.map do |entry|
+      Diary.new(entry['id'], entry['title'], entry['body'])
+    end
   end
 
   def self.create(title, body)
     choose_database
     @database.exec("INSERT INTO diary(title,body)" \
-    "VALUES('#{title}','#{body}') RETURNING title, body")
+    "VALUES('#{title}','#{body}') RETURNING id, title, body")
   end
 
-  def initialize(title, body)
+  def initialize(id, title, body)
+    @id = id
     @title = title
     @body = body
   end

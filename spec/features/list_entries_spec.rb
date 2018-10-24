@@ -9,8 +9,8 @@ feature 'listing diary entries' do
     expect(page).to have_current_path '/all_entries'
   end
 
-  scenario 'should list multiple entries' do
-    expect(page).to have_content 'My first entry My second entry'
+  scenario 'should list multiple entry titles' do
+    expect(page).to have_content "My first entry\nMy second entry"
   end
 
   scenario 'should be able to return home by clicking on the home button' do

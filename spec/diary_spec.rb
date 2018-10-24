@@ -15,6 +15,7 @@ describe Diary do
     it 'should be able to create a new entry' do
       title, body = 'My first entry', 'Lorem ipsum'
       results = described_class.create(title, body).first
+      expect(results['id']).to eq '1'
       expect(results['title']).to eq title
       expect(results['body']).to eq body
     end
