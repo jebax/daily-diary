@@ -1,4 +1,4 @@
-.button_link{
+.button_link {
   border:none;
   outline:none;
   background:none;
@@ -8,4 +8,8 @@
   text-decoration:underline;
   font-family:inherit;
   font-size:inherit;
+}
+.body_entry {
+  width: 50%;
+  height: 30%;
 }

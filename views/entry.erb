@@ -4,4 +4,7 @@
 <form action='/entry' method='post'>
   <button type='submit' name='id' value='<%= @entry.id %>'>Edit</button>
 </form>
+<form action='/entry/delete' method='post'>
+  <button type='submit' name='id' value='<%= @entry.id %>'>Delete</button>
+</form>
 <%= erb :home_button %>

@@ -24,6 +24,12 @@ class Diary
     "RETURNING id, title, body")
   end
 
+  def self.delete(id)
+    choose_database
+    @database.exec("DELETE FROM diary WHERE id='#{id}'" \
+    "RETURNING id, title, body")
+  end
+
   def initialize(id, title, body)
     @id = id
     @title = title

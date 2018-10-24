@@ -12,6 +12,12 @@ def fill_in_and_submit_two_entries
   click_button 'Submit'
 end
 
+def submit_entry_and_move_to_entry_page
+  fill_in_and_submit_entry
+  click_button 'View all entries'
+  click_button 'My first entry'
+end
+
 def database
   PG.connect(dbname: 'daily_diary_test')
 end

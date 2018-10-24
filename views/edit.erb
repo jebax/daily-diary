@@ -1,7 +1,7 @@
 <%= erb :header %>
 <h3><%= @entry.title %></h3>
 <form action='/entry/edit' method='post'>
-  <input type='text' name='body' value='<%= @entry.body %>'/>
+  <input class='body_entry' type='text' name='body' value='<%= @entry.body %>'/>
   <button type='submit' name='id' value='<%= @entry.id %>'>Update</button>
 </form>
 <%= erb :home_button %>

@@ -35,8 +35,7 @@ class DailyDiary < Sinatra::Base
   end
 
   get '/entry' do
-    list = Diary.all_entries
-    @entry = list.select { |entry| entry.id == session[:id] }.first
+    select_entry_from_list
     erb :entry
   end
 
@@ -46,8 +45,7 @@ class DailyDiary < Sinatra::Base
   end
 
   get '/entry/edit' do
-    list = Diary.all_entries
-    @entry = list.select { |entry| entry.id == session[:id] }.first
+    select_entry_from_list
     erb :edit
   end
 
@@ -58,9 +56,29 @@ class DailyDiary < Sinatra::Base
   end
 
   get '/entry/edit/complete' do
+    select_entry_from_list
+    erb :edit_complete
+  end
+
+  post '/entry/delete' do
+    session[:id] = params[:id]
+    redirect '/entry/delete'
+  end
+
+  get '/entry/delete' do
+    select_entry_from_list
+    erb :delete_confirm
+  end
+
+  post '/entry/delete/confirm' do
+    redirect '/entry' if params[:id] == 'Back'
+    Diary.delete(params[:id])
+    redirect '/all_entries'
+  end
+
+  def select_entry_from_list
     list = Diary.all_entries
     @entry = list.select { |entry| entry.id == session[:id] }.first
-    erb :edit_complete
   end
 
   run! if app_file == $PROGRAM_NAME

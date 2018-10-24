@@ -32,4 +32,14 @@ describe Diary do
       expect(results['body']).to eq entry_1.body
     end
   end
+
+  describe "::delete" do
+    it 'should be able to delete an entry' do
+      fill_table_with_two_entries
+      described_class.delete(entry_1.id).first
+      diary_instance = described_class.all_entries.first
+      expect(diary_instance.id).not_to eq '1'
+      expect(diary_instance.title).not_to eq 'My first entry'
+    end
+  end
 end

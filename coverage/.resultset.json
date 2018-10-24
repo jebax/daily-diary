@@ -5,7 +5,17 @@
         1,
         null,
         1,
-        2,
+        3,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null,
         1,
         1,
@@ -38,11 +48,33 @@
         null,
         null
       ],
+      "/Users/Joel/Makers/week4/daily-diary/spec/features/deleting_entry_spec.rb": [
+        1,
+        1,
+        3,
+        3,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/Joel/Makers/week4/daily-diary/spec/features/editing_entry_spec.rb": [
         1,
         1,
-        5,
-        5,
         5,
         5,
         null,
@@ -165,6 +197,6 @@
         null
       ]
     },
-    "timestamp": 1540379044
+    "timestamp": 1540381026
   }
 }

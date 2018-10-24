@@ -1,8 +1,6 @@
 feature 'editing an entry' do
   before do
-    fill_in_and_submit_entry
-    click_button 'View all entries'
-    click_button 'My first entry'
+    submit_entry_and_move_to_entry_page
     click_button 'Edit'
   end
 
