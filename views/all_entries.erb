@@ -1,7 +1,9 @@
 <%= erb :header %>
 <% @list.each do |entry| %>
   <form action='/all_entries' method='post'>
-    <button type='submit' name='id' value='<%= entry.id %>'><%= entry.title %></button><br>
+    <button class="button_link" type='submit' name='id' value='<%= entry.id %>'>
+      <%= entry.title %>
+    </button><br>
   </form>
 <% end %>
 <%= erb :home_button %>
