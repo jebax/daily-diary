@@ -12,8 +12,8 @@ feature 'submitting entries' do
   end
 
   scenario 'should not let the user submit without both title and body' do
-    error_message = "Please enter a title and body before submitting!"
-    click_button "Submit"
+    error_message = 'Please enter a title and body before submitting!'
+    click_button 'Submit'
     expect(page).to have_content error_message
   end
 end

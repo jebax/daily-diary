@@ -14,20 +14,20 @@ class Diary
 
   def self.create(title, body)
     choose_database
-    @database.exec("INSERT INTO diary(title,body)" \
+    @database.exec('INSERT INTO diary(title,body)' \
     "VALUES('#{title}','#{body}') RETURNING id, title, body")
   end
 
   def self.update(id, body)
     choose_database
     @database.exec("UPDATE diary SET body='#{body}' WHERE id='#{id}'" \
-    "RETURNING id, title, body")
+    'RETURNING id, title, body')
   end
 
   def self.delete(id)
     choose_database
     @database.exec("DELETE FROM diary WHERE id='#{id}'" \
-    "RETURNING id, title, body")
+    'RETURNING id, title, body')
   end
 
   def initialize(id, title, body)
@@ -39,11 +39,11 @@ class Diary
   private
 
   def self.choose_database
-    if ENV['ENVIRONMENT'] == 'test'
-      @database = PG.connect(dbname: 'daily_diary_test')
-    else
-      @database = PG.connect(dbname: 'daily_diary')
-    end
+    @database = if ENV['ENVIRONMENT'] == 'test'
+                  PG.connect(dbname: 'daily_diary_test')
+                else
+                  PG.connect(dbname: 'daily_diary')
+                end
   end
 
   def self.select_all

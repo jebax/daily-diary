@@ -10,7 +10,7 @@ feature 'viewing an individual entry' do
   end
 
   scenario 'shows the entry title on screen' do
-    expect(page).to have_content "My first entry"
+    expect(page).to have_content 'My first entry'
   end
 
   scenario 'shows the entry body on screen' do
