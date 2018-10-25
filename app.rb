@@ -43,7 +43,7 @@ class DailyDiary < Sinatra::Base
   patch '/entries/:id/edit' do
     Diary.update(params[:id], params[:body])
     session[:id] = params[:id]
-    redirect "/entries/:id/edit/complete"
+    redirect '/entries/:id/edit/complete'
   end
 
   get '/entries/:id/edit/complete' do

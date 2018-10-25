@@ -44,7 +44,7 @@ describe Diary do
     end
   end
 
-  describe "::find" do
+  describe '::find' do
     it 'should be able to find an entry' do
       fill_table_with_two_entries
       result = described_class.find('1')

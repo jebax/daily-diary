@@ -1,4 +1,4 @@
-require_relative "database_manager"
+require_relative 'database_manager'
 
 class Diary
   @database = nil
@@ -12,7 +12,7 @@ class Diary
   end
 
   def self.create(title, body)
-    DatabaseManager.query("INSERT INTO diary(title,body)" \
+    DatabaseManager.query('INSERT INTO diary(title,body)' \
     "VALUES('#{title}','#{body}') RETURNING id, title, body")
   end
 
@@ -27,7 +27,7 @@ class Diary
   end
 
   def self.find(id)
-    self.all_entries.select { |entry| entry.id == id }.first
+    all_entries.select { |entry| entry.id == id }.first
   end
 
   def initialize(id, title, body)
@@ -36,9 +36,9 @@ class Diary
     @body = body
   end
 
-  private
-
   def self.select_all
     DatabaseManager.query('SELECT * FROM diary')
   end
+
+  private_class_method :select_all
 end
