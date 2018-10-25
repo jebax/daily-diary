@@ -24,12 +24,12 @@ class DailyDiary < Sinatra::Base
     erb :submit
   end
 
-  get '/all_entries' do
+  get '/entries' do
     @list = Diary.all_entries
-    erb :all_entries
+    erb :entries
   end
 
-  post '/all_entries' do
+  post '/entries' do
     session[:id] = params[:id]
     redirect '/entry'
   end

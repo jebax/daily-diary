@@ -6,7 +6,7 @@ feature 'listing diary entries' do
   end
 
   scenario 'button should go to a new page' do
-    expect(page).to have_current_path '/all_entries'
+    expect(page).to have_current_path '/entries'
   end
 
   scenario 'should list multiple entry titles' do
