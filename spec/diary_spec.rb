@@ -43,4 +43,14 @@ describe Diary do
       expect(diary_instance.title).not_to eq 'My first entry'
     end
   end
+
+  describe "::find" do
+    it 'should be able to find an entry' do
+      fill_table_with_two_entries
+      result = described_class.find('1')
+      expect(result.id).to eq '1'
+      expect(result.title).to eq 'My first entry'
+      expect(result.body).to eq 'Lorem ipsum'
+    end
+  end
 end

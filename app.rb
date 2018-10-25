@@ -30,12 +30,12 @@ class DailyDiary < Sinatra::Base
   end
 
   get '/entries/:id' do
-    @entry = Diary.all_entries.select { |entry| entry.id == params[:id] }.first
+    @entry = Diary.find(params[:id])
     erb :entry
   end
 
   get '/entries/:id/edit' do
-    @entry = Diary.all_entries.select { |entry| entry.id == params[:id] }.first
+    @entry = Diary.find(params[:id])
     erb :edit
   end
 
@@ -46,12 +46,12 @@ class DailyDiary < Sinatra::Base
   end
 
   get '/entries/:id/edit/complete' do
-    @entry = Diary.all_entries.select { |entry| entry.id == session[:id] }.first
+    @entry = Diary.find(session[:id])
     erb :edit_complete
   end
 
   get '/entries/:id/delete' do
-    @entry = Diary.all_entries.select { |entry| entry.id == params[:id] }.first
+    @entry = Diary.find(params[:id])
     erb :delete_confirm
   end
 

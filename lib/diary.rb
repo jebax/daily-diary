@@ -30,6 +30,11 @@ class Diary
     'RETURNING id, title, body')
   end
 
+  def self.find(id)
+    choose_database
+    self.all_entries.select { |entry| entry.id == id }.first
+  end
+
   def initialize(id, title, body)
     @id = id
     @title = title

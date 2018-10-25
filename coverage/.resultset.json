@@ -47,6 +47,16 @@
         1,
         null,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/Joel/Makers/week4/daily-diary/spec/features/deleting_entry_spec.rb": [
@@ -198,6 +208,6 @@
         null
       ]
     },
-    "timestamp": 1540459008
+    "timestamp": 1540459359
   }
 }
