@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/diary'
+require './database_setup'
 
 class DailyDiary < Sinatra::Base
   enable :sessions, :method_override

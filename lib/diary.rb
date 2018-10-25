@@ -1,4 +1,4 @@
-require 'pg'
+require_relative "database_manager"
 
 class Diary
   @database = nil
@@ -6,32 +6,27 @@ class Diary
   attr_reader :id, :title, :body
 
   def self.all_entries
-    choose_database
     select_all.map do |entry|
       Diary.new(entry['id'], entry['title'], entry['body'])
     end
   end
 
   def self.create(title, body)
-    choose_database
-    @database.exec('INSERT INTO diary(title,body)' \
+    DatabaseManager.query("INSERT INTO diary(title,body)" \
     "VALUES('#{title}','#{body}') RETURNING id, title, body")
   end
 
   def self.update(id, body)
-    choose_database
-    @database.exec("UPDATE diary SET body='#{body}' WHERE id='#{id}'" \
+    DatabaseManager.query("UPDATE diary SET body='#{body}' WHERE id='#{id}'" \
     'RETURNING id, title, body')
   end
 
   def self.delete(id)
-    choose_database
-    @database.exec("DELETE FROM diary WHERE id='#{id}'" \
+    DatabaseManager.query("DELETE FROM diary WHERE id='#{id}'" \
     'RETURNING id, title, body')
   end
 
   def self.find(id)
-    choose_database
     self.all_entries.select { |entry| entry.id == id }.first
   end
 
@@ -43,15 +38,7 @@ class Diary
 
   private
 
-  def self.choose_database
-    @database = if ENV['ENVIRONMENT'] == 'test'
-                  PG.connect(dbname: 'daily_diary_test')
-                else
-                  PG.connect(dbname: 'daily_diary')
-                end
-  end
-
   def self.select_all
-    @database.exec('SELECT * FROM diary')
+    DatabaseManager.query('SELECT * FROM diary')
   end
 end
