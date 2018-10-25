@@ -14,7 +14,7 @@ feature 'editing an entry' do
 
   scenario 'shows the body on screen inside an input form' do
     body = 'Lorem ipsum'
-    expect(page).to have_selector("input[type='text'][value='#{body}']")
+    expect(page).to have_content body
   end
 
   scenario 'can click the update button and see a confirmation on screen' do
@@ -27,6 +27,6 @@ feature 'editing an entry' do
     updated_body = 'Lorem ipsum dolor sit a met'
     fill_in 'body', with: updated_body
     click_button 'Update'
-    expect(page).to have_selector("input[type='text'][value='#{updated_body}']")
+    expect(page).to have_content updated_body
   end
 end
