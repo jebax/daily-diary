@@ -1,6 +1,6 @@
 # Daily Diary Application!
 
-This is a mini project completed independently. Users will be able to add, edit, and delete diary entries with a title and body. This full-stack project will use Sinatra and Ruby for front end and model, and PostgreSQL for the back end database.
+This is a mini project completed independently. In this basic CRUD application, users can add, edit, and delete diary entries with a title and body. This full-stack project uses Sinatra and Ruby for front end and model, and PostgreSQL for the database.
 
 ## Domain model diagram
 
@@ -8,7 +8,7 @@ Here is a diagram I sketched to represent the domain model for this project: inc
 
 ![image](./diagram.png)
 
-### How to use the app
+### How to use the app
 In terminal:
 - Run `bundle init`.
 - Install `postgres` if you haven't already, then connect to `psql`.
