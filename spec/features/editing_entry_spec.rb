@@ -5,7 +5,7 @@ feature 'editing an entry' do
   end
 
   scenario "can be initiated by clicking on the 'edit' button" do
-    expect(page).to have_current_path '/entry/edit'
+    expect(page).to have_current_path '/entries/1/edit?id=1'
   end
 
   scenario 'shows the title on screen' do

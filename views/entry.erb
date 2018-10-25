@@ -1,10 +1,10 @@
 <%= erb :header %>
 <h3><%= @entry.title %></h3>
 <p><%= @entry.body %></p>
-<form action='/entry' method='post'>
+<form action='/entries/<%= @entry.id %>/edit' method='get'>
   <button type='submit' name='id' value='<%= @entry.id %>'>Edit</button>
 </form>
-<form action='/entry/delete' method='post'>
+<form action='/entries/<%= @entry.id %>/delete' method='get'>
   <button type='submit' name='id' value='<%= @entry.id %>'>Delete</button>
 </form>
 <%= erb :home_button %>

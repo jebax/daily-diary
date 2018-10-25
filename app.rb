@@ -2,7 +2,7 @@ require 'sinatra/base'
 require './lib/diary'
 
 class DailyDiary < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
 
   get '/' do
     erb :home
@@ -34,45 +34,30 @@ class DailyDiary < Sinatra::Base
     erb :entry
   end
 
-  post '/entry' do
-    session[:id] = params[:id]
-    redirect '/entry/edit'
-  end
-
-  get '/entry/edit' do
-    select_entry_from_list
+  get '/entries/:id/edit' do
+    @entry = Diary.all_entries.select { |entry| entry.id == params[:id] }.first
     erb :edit
   end
 
-  post '/entry/edit' do
+  patch '/entries/:id/edit' do
     Diary.update(params[:id], params[:body])
     session[:id] = params[:id]
-    redirect '/entry/edit/complete'
+    redirect "/entries/:id/edit/complete"
   end
 
-  get '/entry/edit/complete' do
-    select_entry_from_list
+  get '/entries/:id/edit/complete' do
+    @entry = Diary.all_entries.select { |entry| entry.id == session[:id] }.first
     erb :edit_complete
   end
 
-  post '/entry/delete' do
-    session[:id] = params[:id]
-    redirect '/entry/delete'
-  end
-
-  get '/entry/delete' do
-    select_entry_from_list
+  get '/entries/:id/delete' do
+    @entry = Diary.all_entries.select { |entry| entry.id == params[:id] }.first
     erb :delete_confirm
   end
 
-  post '/entry/delete/confirm' do
+  delete '/entries/:id/delete' do
     Diary.delete(params[:id])
     redirect '/entries'
-  end
-
-  def select_entry_from_list
-    list = Diary.all_entries
-    @entry = list.select { |entry| entry.id == session[:id] }.first
   end
 
   run! if app_file == $PROGRAM_NAME
