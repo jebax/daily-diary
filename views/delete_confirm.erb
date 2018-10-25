@@ -5,6 +5,6 @@
 <form action='/entry/delete/confirm' method='post'>
   <button type='submit' name='id' value='<%= @entry.id %>'>Confirm</button>
 </form>
-<form action='/entry/delete/confirm' method='post'>
-  <button type='submit' name='id' value='Back'>Back</button>
+<form action='/entries/<%= @entry.id %>' method='get'>
+  <button type='submit' name='id' value='<%= @entry.id %>'>Back</button>
 </form>

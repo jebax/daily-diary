@@ -29,13 +29,8 @@ class DailyDiary < Sinatra::Base
     erb :entries
   end
 
-  post '/entries' do
-    session[:id] = params[:id]
-    redirect '/entry'
-  end
-
-  get '/entry' do
-    select_entry_from_list
+  get '/entries/:id' do
+    @entry = Diary.all_entries.select { |entry| entry.id == params[:id] }.first
     erb :entry
   end
 
@@ -71,9 +66,8 @@ class DailyDiary < Sinatra::Base
   end
 
   post '/entry/delete/confirm' do
-    redirect '/entry' if params[:id] == 'Back'
     Diary.delete(params[:id])
-    redirect '/all_entries'
+    redirect '/entries'
   end
 
   def select_entry_from_list

@@ -10,13 +10,13 @@ feature 'deleting an entry' do
 
   scenario 'clicking confirm will take the user back to the list page' do
     click_button 'Confirm'
-    expect(page).to have_current_path('/all_entries')
+    expect(page).to have_current_path('/entries')
     expect(page).not_to have_content 'My first entry'
   end
 
   scenario 'clicking back will take the user back to the entry page' do
     click_button 'Back'
-    expect(page).to have_current_path('/entry')
+    expect(page).to have_current_path('/entries/1?id=1')
     expect(page).to have_content 'My first entry'
   end
 end

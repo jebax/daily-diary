@@ -6,7 +6,7 @@ feature 'viewing an individual entry' do
   end
 
   scenario 'can be accessed by clicking on the entry title' do
-    expect(page).to have_current_path '/entry'
+    expect(page).to have_current_path '/entries/1?id=1'
   end
 
   scenario 'shows the entry title on screen' do
